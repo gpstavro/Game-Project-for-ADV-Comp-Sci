@@ -51,6 +51,12 @@ class Breakfast < Scene
     end
 end
 
+class Menu < Scene
+    enter()
+        puts "You hear all of the different kinds of food your mother has to offer: Bacon, eggs, waffles, cereal, \n fruit salad, and pasteries (from the senior breakfast)"
+        puts "What would you like for breakfast? Type the combination of foods you want?"
+        puts "> "
+        food = $stdin.get.chomp
 
 
 
