@@ -1,9 +1,4 @@
-class Scene
-  def enter()
-    puts "There are no scenes attached"
-    exit(1)
-  end
-end
+
 class Engine
 
   def initialize(scene_map)
@@ -23,4 +18,3 @@ class Engine
     current_scene.enter()
   end
 end
-
