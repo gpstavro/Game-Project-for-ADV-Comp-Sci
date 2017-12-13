@@ -37,18 +37,18 @@ class Name < Scene
         # end
         puts "What is your name? (first name only)"
         puts "> " 
-        @@name = $stdin.gets.chomp
+        $name = $stdin.gets.chomp
 
         return 'breakfast'
     end
 end
 class Breakfast < Scene
     def enter()
-        puts "#{@name}, you walk downstairs, it is six in the morning. \n You can hear your mother reading the newspaper in the kitchen. You are very tired and can barely see. It is one of those mornings... \n You finally reach the kitchen table and sit down, and your mother looks at you for breakfast."
-        puts "Mom: 'Hello #{@name}, how are you doing today?"
-        puts "#{@name}: Hi mom"
+        puts "#{$name}, you walk downstairs, it is six in the morning. \n You can hear your mother reading the newspaper in the kitchen. You are very tired and can barely see. It is one of those mornings... \n You finally reach the kitchen table and sit down, and your mother looks at you for breakfast."
+        puts "Mom: 'Hello #{$name}, how are you doing today?"
+        puts "#{$name}: Hi mom"
         puts "Mom: Are you hungry?"
-        puts "#{@name}: (Yes or no) > "
+        puts "#{$name}: (Yes or no) > "
         
         hungry = $stdin.gets.chomp
         
@@ -64,7 +64,7 @@ class Breakfast < Scene
             # @cal = cal
             
         if food == "bacon and eggs" || food == "Bacon and eggs" || food == "Eggs and bacon" || food == "eggs and bacon"
-            @@cal = 273
+            $cal = 273
             return "practice"
         elsif food == "Waffles" || food == "waffles"
             puts "Would you like Syrup? (yes or no)"
@@ -77,10 +77,10 @@ class Breakfast < Scene
                 print "> "
                 butter = $stdin.gets.chomp
                 if butter == "yes" || butter == "Yes"
-                    @@cal = 349
+                    $cal = 349
                     return "practice"
                 else
-                    @@cal = 247
+                    $cal = 247
                     puts "\nToo much cholesterol for you?"
                     return "practice"
                 end
@@ -90,15 +90,15 @@ class Breakfast < Scene
                 print "> "
                 butter = $stdin.gets.chomp
                 if butter == "yes" || butter == "Yes"
-                    @@cal = 297
+                    $cal = 297
                     return "practice"
                 else
-                    @@cal = 195
+                    $cal = 195
                     return "practice"
                 end
             end
         elsif food == "fruit salad" || food == "Fruit salad"
-            @@cal = 124
+            $cal = 124
             return "practice"
         elsif food == "croissants" || food == "Croissants"
             puts "What kind would you like regular (with butter) or a chocolate one?"
@@ -107,18 +107,18 @@ class Breakfast < Scene
             croissant = $stdin.gets.chomp
             if croissant == "regular"
                 puts "\nNarrator: Great choice!!"
-                @@cal = 231
+                $cal = 231
                 return "practice"
             elsif croissant == "chocolate"
                 puts "Narrator: Ohhh good choice. You have practice for a few hours..."
-                @cal = 420
+                $cal = 420
                 return "practice"
             end
         end            
             # return 'menu'
         else 
-            puts "Mom: That is a first!! I know you, #{@name}, in case you are hungry, please take this protein bar! You have to be out on the snow at 8:30 sharp because you have practice; it is a Saturday, remember?"
-            @@cal = 0
+            puts "Mom: That is a first!! I know you, #{$name}, in case you are hungry, please take this protein bar! You have to be out on the snow at 8:30 sharp because you have practice; it is a Saturday, remember?"
+            $cal = 0
             return 'practice'
         end
     end
@@ -225,7 +225,7 @@ class Hike < Scene
     def enter()
         puts "\n \n\tYou start hiking the air is thin, and it gets increasingly difficult as time goes on. Although you look forward \nto the time when you reach the top: it is when you can put your skis on, which you have been carrying, and ski down."
         print "\n\tOn the third time going up your stomach begins to hurt. You do not know what it is, so you continue to climb, \nbut as time goes it starts to hurt much more. \nYou try to push yourself even more, while carrying 30 pounds worth of \nequipement, because of the concept of 'NO PAIN NO GAIN...' "
-        if @@cal = 349 || @@cal = 420 
+        if $cal = 349 || $cal = 420 
             print "You realize you must vomit, so you run into the woods and puke. \nYou start to cross the mountain to tell your coach that you vomitted, but you run into the head coach. You have two options \neither tell this man that you need to leave or go tell your coach."
             puts "\n Tell now or later???"
             puts ">"
@@ -237,10 +237,10 @@ class Hike < Scene
                 puts "You puke again while trying to go over. The coach sends you home anyways."
                 return "end I"
             end
-        elsif @@cal = 124 || @@cal = 0
+        elsif $cal = 124 || $cal = 0
             puts "You go inside to eat something, and your coach sees you. He begins to yell at you and sends you home. He explained that \n you are not to go to the race the next day..."
             return "home"
-        elsif @@cal = 273 || @@cal = 231 || @@cal = 297 || @@cal = 247
+        elsif $cal = 273 || $cal = 231 || $cal = 297 || $cal = 247
             puts "You push through the pain. Turns out it was just Indigestion."
             puts "You pushed yourself and ran up the mountain a few times."
             return "end II"
